@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Button } from "../../components";
+import { Button } from "../../components/common";
+
 
 const Home = () => {
   const [count, setCount] = useState(0);

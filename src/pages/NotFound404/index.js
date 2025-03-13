@@ -1,3 +1,3 @@
-import NotFound404 from "./NotFound404";
+import NotFound404 from "../public/NotFound404";
 
 export default NotFound404;
