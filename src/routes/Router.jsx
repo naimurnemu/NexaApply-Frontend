@@ -1,6 +1,25 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
-import { Home, NotFound404 } from "./LazyPages";
+import {
+  About,
+  AdminLogin,
+  Admission,
+  AuthContainer,
+  CollegeDetails,
+  Colleges,
+  Dashboard,
+  ForgotPassword,
+  Home,
+  Login,
+  ManageColleges,
+  ManageUsers,
+  MyColleges,
+  NotFound404,
+  Profile,
+  Register,
+  ResetPassword,
+} from "./LazyPages";
+import ManageAdmins from "@/pages/admin/ManageAdmins";
 
 const router = createBrowserRouter([
   {
@@ -11,12 +30,82 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
+      {
+        path: "/colleges",
+        element: <Colleges />,
+      },
+      {
+        path: "/colleges/:id",
+        element: <CollegeDetails />,
+      },
+      {
+        path: "/admission",
+        element: <Admission />,
+      },
+      {
+        path: "/my-colleges",
+        element: <MyColleges />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
+      },
     ],
   },
   {
-    path: "*", 
-    element: <NotFound404 />
-  }
+    path: "/auth",
+    element: <AuthContainer />,
+    children: [
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "register",
+        element: <Register />,
+      },
+      {
+        path: "forgot-password",
+        element: <ForgotPassword />,
+      },
+      {
+        path: "reset-password",
+        element: <ResetPassword />,
+      },
+      {
+        path: "admin-login",
+        element: <AdminLogin />,
+      },
+    ],
+  },
+
+  {
+    path: "/admin",
+    element: <Dashboard />,
+    children: [
+      {
+        path: "colleges",
+        element: <ManageColleges />,
+      },
+      {
+        path: "users",
+        element: <ManageUsers />,
+      },
+      {
+        path: "admins",
+        element: <ManageAdmins />,
+      },
+    ],
+  },
+
+  {
+    path: "/about",
+    element: <About />,
+  },
+  {
+    path: "*",
+    element: <NotFound404 />,
+  },
 ]);
 
 export default router;

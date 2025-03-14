@@ -16,6 +16,7 @@ const ManageColleges = MakeLazy(() => import("../pages/admin/ManageColleges"));
 const ManageUsers = MakeLazy(() => import("../pages/admin/ManageUsers"));
 const About = MakeLazy(() => import("../pages/public/About"));
 const NotFound404 = MakeLazy(() => import("../pages/public/NotFound404"));
+const AuthContainer = MakeLazy(() => import("../pages/public/AuthContainer"));
 
 export {
   Home,
@@ -34,4 +35,5 @@ export {
   ManageColleges,
   ManageUsers,
   About,
+  AuthContainer
 };
