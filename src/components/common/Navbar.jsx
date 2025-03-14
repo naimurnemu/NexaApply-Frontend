@@ -10,12 +10,11 @@ const Navbar = () => {
     <div className="mb-14">
       <nav className="bg-white shadow-md px-6 py-4 mb-8 fixed w-full top-0 z-50">
         <div className="container mx-auto flex justify-between items-center">
-          {/* Logo */}
+         
           <Link to="/" className="text-2xl font-bold text-blue-600">
             NexaApply
           </Link>
 
-          {/* Desktop Menu */}
           <ul className="hidden md:flex space-x-6 text-gray-700">
             <li>
               <Link to="/" className="hover:text-blue-500 transition">
@@ -39,17 +38,17 @@ const Navbar = () => {
             </li>
           </ul>
 
-          {/* Authentication Buttons */}
+ 
           <div className="hidden md:flex space-x-4">
             <Button asChild>
-              <Link to="/login">Login</Link>
+              <Link to="/auth/login">Login</Link>
             </Button>
             <Button asChild variant="outline">
-              <Link to="/register">Register</Link>
+              <Link to="/auth/register">Register</Link>
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
+  
           <button
             className="md:hidden focus:outline-none"
             onClick={() => setIsOpen(!isOpen)}
@@ -58,7 +57,6 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden absolute bg-white w-full left-0 top-16 shadow-lg py-4">
             <ul className="flex flex-col space-y-4 text-center text-gray-700">

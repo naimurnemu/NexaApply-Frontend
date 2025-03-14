@@ -73,7 +73,7 @@ const router = createBrowserRouter([
         element: <ResetPassword />,
       },
       {
-        path: "admin-login",
+        path: "admin",
         element: <AdminLogin />,
       },
     ],
