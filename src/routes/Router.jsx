@@ -11,6 +11,7 @@ import {
   ForgotPassword,
   Home,
   Login,
+  ManageAdmins,
   ManageColleges,
   ManageUsers,
   MyColleges,
@@ -19,93 +20,42 @@ import {
   Register,
   ResetPassword,
 } from "./LazyPages";
-import ManageAdmins from "@/pages/admin/ManageAdmins";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/colleges",
-        element: <Colleges />,
-      },
-      {
-        path: "/colleges/:id",
-        element: <CollegeDetails />,
-      },
-      {
-        path: "/admission",
-        element: <Admission />,
-      },
-      {
-        path: "/my-colleges",
-        element: <MyColleges />,
-      },
-      {
-        path: "/profile",
-        element: <Profile />,
-      },
+      { path: "/", element: <Home /> },
+      { path: "/colleges", element: <Colleges /> },
+      { path: "/colleges/:id", element: <CollegeDetails /> },
+      { path: "/admission", element: <Admission /> },
+      { path: "/my-colleges", element: <MyColleges /> },
+      { path: "/profile", element: <Profile /> },
+      { path: "/about", element: <About /> },
     ],
   },
   {
     path: "/auth",
     element: <AuthContainer />,
     children: [
-      {
-        path: "login",
-        element: <Login />,
-      },
-      {
-        path: "register",
-        element: <Register />,
-      },
-      {
-        path: "forgot-password",
-        element: <ForgotPassword />,
-      },
-      {
-        path: "reset-password",
-        element: <ResetPassword />,
-      },
-      {
-        path: "admin",
-        element: <AdminLogin />,
-      },
+      { path: "login", element: <Login /> },
+      { path: "register", element: <Register /> },
+      { path: "forgot-password", element: <ForgotPassword /> },
+      { path: "reset-password", element: <ResetPassword /> },
+      { path: "admin", element: <AdminLogin />,  },
     ],
   },
-
   {
     path: "/admin",
     element: <Dashboard />,
     children: [
-      {
-        path: "colleges",
-        element: <ManageColleges />,
-      },
-      {
-        path: "users",
-        element: <ManageUsers />,
-      },
-      {
-        path: "admins",
-        element: <ManageAdmins />,
-      },
+      { path: "colleges", element: <ManageColleges /> },
+      { path: "users", element: <ManageUsers /> },
+      { path: "admins", element: <ManageAdmins /> },
     ],
   },
-
-  {
-    path: "/about",
-    element: <About />,
-  },
-  {
-    path: "*",
-    element: <NotFound404 />,
-  },
+  { path: "*", element: <NotFound404 /> },
 ]);
 
 export default router;

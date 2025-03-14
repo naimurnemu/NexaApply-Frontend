@@ -1,9 +1,10 @@
+import { LoaderCircle } from 'lucide-react';
 import React from 'react';
 
 const Loader = () => {
   return (
-    <div>
-      this is loader
+    <div className="inline-flex items-center justify-center text-center">
+      <LoaderCircle />
     </div>
   );
 };

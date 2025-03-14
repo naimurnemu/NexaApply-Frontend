@@ -1,14 +1,20 @@
 import { Button } from "@/components/ui/button";
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 
 const AuthContainer = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  console.log(location.pathname);
+
+  useEffect(() => {
+    if (pathname === "/auth") {
+      navigate("/auth/login");
+    }
+  }, [pathname]);
+
   return (
-    <div className="grid grid-cols-2 min-h-screen">
-      <div className="relative">
+    <div className="grid grid-cols-1 md:grid-cols-2 min-h-screen">
+      <div className="relative order-2 md:order-1">
         <div
           className="absolute inset-0 bg-cover bg-center filter grayscale"
           style={{
@@ -37,16 +43,8 @@ const AuthContainer = () => {
             </div>
           </div>
 
-          <div className="mb-8 text-center">
+          <div className="my-8 text-center">
             <div className="space-x-4">
-              {!pathname.includes("register") ? (
-                <Button
-                  onClick={() => navigate("/auth/register")}
-                  className="px-6 py-2 text-white"
-                >
-                  Register
-                </Button>
-              ) : null}
               {!pathname.includes("login") ? (
                 <Button
                   onClick={() => navigate("/auth/login")}
@@ -54,6 +52,14 @@ const AuthContainer = () => {
                   className="px-6 py-2 text-black"
                 >
                   Login
+                </Button>
+              ) : null}
+              {!pathname.includes("register") ? (
+                <Button
+                  onClick={() => navigate("/auth/register")}
+                  className="px-6 py-2 text-white"
+                >
+                  Register
                 </Button>
               ) : null}
             </div>
@@ -78,7 +84,7 @@ const AuthContainer = () => {
         </div>
       </div>
 
-      <div className="bg-background overflow-auto">
+      <div className="bg-background overflow-auto order-1 md:order-2">
         <Outlet />
       </div>
     </div>

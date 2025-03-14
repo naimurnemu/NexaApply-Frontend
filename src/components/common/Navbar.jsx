@@ -10,7 +10,6 @@ const Navbar = () => {
     <div className="mb-14">
       <nav className="bg-white shadow-md px-6 py-4 mb-8 fixed w-full top-0 z-50">
         <div className="container mx-auto flex justify-between items-center">
-         
           <Link to="/" className="text-2xl font-bold text-blue-600">
             NexaApply
           </Link>
@@ -38,17 +37,15 @@ const Navbar = () => {
             </li>
           </ul>
 
- 
           <div className="hidden md:flex space-x-4">
-            <Button asChild>
+            <Button asChild variant="outline">
               <Link to="/auth/login">Login</Link>
             </Button>
-            <Button asChild variant="outline">
+            <Button asChild>
               <Link to="/auth/register">Register</Link>
             </Button>
           </div>
 
-  
           <button
             className="md:hidden focus:outline-none"
             onClick={() => setIsOpen(!isOpen)}
